@@ -17,40 +17,51 @@
   </head>
 
   <body>
-    <h1>Here's the forecast for today:</h1>
-    <div class="container" id="container">
-      <div class="row">
-        <div class="col-sm">
-          <ul>
-            <li>Some City</li>
-            <li>MM DD HH:MM</li>
-            <li>10°C</li>
-          </ul>
+    <div class="container-wrapper">
+      <h1>Here's the forecast for today:</h1>
+      <form>
+        <div>
+          <input
+            type="search"
+            id="mySearch"
+            name="city-search"
+            placeholder="Search for city..."
+          />
+          <button>Search</button>
         </div>
-        <div class="col-sm">
-          <ul>
-            <li>🌞</li>
-            <li>Sunny</li>
-          </ul>
-        </div>
-        <div class="col-sm">
-          <ul>
-            <li>Humidity: %</li>
-            <li>Sunise:</li>
-            <li>Sunset:</li>
-            <li>Wind: mph</li>
-          </ul>
+      </form>
+      <div class="container" id="container">
+        <div class="row">
+          <div class="col-sm-4">
+            <span id="date">MM DD HH:MM </span> <br />
+            <span id="degree">10°C </span>
+          </div>
+
+          <div class="col-sm-4">
+            <ul id="forecast">
+              <li><img src="images/sun.png" alt="sunny" width="100" /></li>
+              <li id="description">Sunny</li>
+            </ul>
+          </div>
+          <div class="col-sm-4">
+            <ul id="weather-elements">
+              <li>Humidity: %</li>
+              <li>Sunrise:</li>
+              <li>Sunset:</li>
+              <li>Wind: mph</li>
+            </ul>
+          </div>
         </div>
       </div>
+      <p>
+        <a
+          href="https://github.com/chachr09/weather-Forecast-App.git"
+          target="_blank"
+          >Open-source code</a
+        >
+        created by Christine Cha
+      </p>
     </div>
-    <p>
-      <a
-        href="https://github.com/chachr09/weather-Forecast-App.git"
-        target="_blank"
-        >Open-source code</a
-      >
-      created by Christine Cha
-    </p>
     <script src="src/index.js"></script>
   </body>
 </html>

@@ -1,10 +1,40 @@
+.container-wrapper {
+  background-image: url("https://image.freepik.com/free-vector/sky-background-design_23-2148636462.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: content;
+  max-width: 725px;
+  height: 410px;
+  margin: 5px;
+  padding: 10px;
+}
+
+.container {
+  margin: 10px 55px;
+  padding: 15px;
+  border: 1px;
+}
+
 h1 {
   color: #8fd3f4;
   text-align: center;
+  margin: 30px;
 }
 
+form {
+  text-align: center;
+}
 ul {
   list-style-type: none;
   padding: 0;
   margin: 0;
+}
+
+p {
+  text-align: center;
+}
+
+.degree {
+  text-align: center;
+  font-size: x-large;
 }
