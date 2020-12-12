@@ -16,7 +16,13 @@
       href="https://fonts.googleapis.com/css2?family=Elsie+Swash+Caps:wght@900&family=Gayathri:wght@100&display=swap"
       rel="stylesheet"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+
     <link rel="stylesheet" href="src/style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
     <title>Weather Forecast</title>
   </head>
@@ -24,36 +30,57 @@
   <body>
     <div class="container-wrapper">
       <h1>Here's the forecast for today:</h1>
-      <form>
-        <div>
+
+      <div class="search-container">
+        <form id="search-weather" class="search-weather">
           <input
+            id="search-city-input"
             type="search"
-            id="mySearch"
-            name="city-search"
-            placeholder="Search for city..."
+            placeholder="Search city.."
+            autofocus="on"
+            autocomplete="off"
           />
-          <button>Search</button>
-        </div>
-      </form>
+          <button type="submit"><i class="fa fa-search"></i></button>
+        </form>
+      </div>
+
       <div class="container" id="container">
         <div class="row">
           <div class="col-sm-4">
-            <span id="date">MM DD HH:MM </span> <br />
-            <span class="degree" id="degree">10°C </span>
+            <h2>Dec. 10</h2>
+            <h3>9:50PM</h3>
+
+            <span class="temperature" id="temperature">10°C</span> <br />
+            Feels like:
+            <span id="current-temp"> 10°C</span>
           </div>
 
-          <div class="col-sm-4">
-            <ul id="forecast">
-              <li><img src="images/sun.png" alt="sunny" width="100" /></li>
-              <li id="description">Sunny</li>
+          <div class="col-sm-3">
+            <ul>
+              <li>
+                <img
+                  id="weather-icon"
+                  src="images/sun.png"
+                  alt="sunny"
+                  width="100"
+                />
+              </li>
+              <li id="forecast-description">Sunny</li>
             </ul>
           </div>
-          <div class="col-sm-4">
+          <div class="col-sm-3">
             <ul id="weather-elements">
-              <li>Humidity: %</li>
-              <li>Sunrise:</li>
-              <li>Sunset:</li>
-              <li>Wind: mph</li>
+              Humidity:
+              <span id="humidity"> %</span>
+              <br />
+              Sunrise:
+              <span id="sunrise"> </span>
+              <br />
+              Sunset:
+              <span id="sunset"> </span>
+              <br />
+              Wind:
+              <span id="wind"> mph</span>
             </ul>
           </div>
         </div>
