@@ -23,12 +23,11 @@ function formatDate() {
   let currentMinutes = currentTime.getMinutes();
   let currentDate = currentTime.getDate();
 
-  let h2 = document.querySelector(`h2`);
-  h2.innerHTML = `${currentDay}. ${currentMonth}/${currentDate}`;
   let h3 = document.querySelector(`h3`);
-  h3.innerHTML = `${currentHours}:${currentMinutes}`;
+  h3.innerHTML = `${currentDay}. ${currentMonth}/${currentDate}` ${currentHours}:${currentMinutes}`;
+  
 
-  let formattedDate = `{currentDay}. ${currentMonth} ${currentDate} ${currentHours}:${currentMinutes} $`;
+  let formattedDate = `${currentDay}. ${currentMonth}/${currentDate}` ${currentHours}:${currentMinutes}`;
   console.log(formattedDate);
 
   return formattedDate;
@@ -36,10 +35,13 @@ function formatDate() {
 
 function displayWeatherConditions(response) {
   console.log(response.data.main);
+  let h2 = document.querySelector(`#city`);
+  h2.innerHTML = response.data.name;
 
-  document.querySelector(`#temperature`).innerHTML = Math.round(
-    response.data.main.temp
-  );
+  document.querySelector(`#country`).innerHTML = response.data.sys.country;
+
+  let temperature = document.querySelector(`#temperature`);
+  temperature.innerHTML = Math.round(response.data.main.temp);
   document.querySelector(`#current-temp`).innerHTML = Math.round(
     response.data.main.feels_like
   );
@@ -75,3 +77,5 @@ function handleSubmit(event) {
 
 let searchForm = document.querySelector("#search-weather");
 searchForm.addEventListener("submit", handleSubmit);
+
+search(`Sacramento`);
