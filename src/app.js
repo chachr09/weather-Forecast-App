@@ -19,7 +19,6 @@ function displayWeatherConditions(response) {
   document.querySelector(`#sunset`).innerHTML = Math.round(
     response.data.sys.sunset
   );
-
   document.querySelector(`#wind`).innerHTML = Math.round(
     response.data.wind.speed
   );
@@ -41,3 +40,39 @@ function handleSubmit(event) {
 
 let searchForm = document.querySelector("#search-weather");
 searchForm.addEventListener("submit", handleSubmit);
+
+function formatDate() {
+  let days = [`Sun`, `Mon`, `Tues`, `Wed`, `Thur`, `Fri`, `Sat`];
+
+  let months = [
+    `Jan`,
+    `Feb`,
+    `Mar`,
+    `Apr`,
+    `May`,
+    `Jun`,
+    `Jul`,
+    `Aug`,
+    `Sep`,
+    `Oct`,
+    `Nov`,
+    `Dec`,
+  ];
+
+  let currentTime = new Date();
+  let currentDay = days[currentTime.getDay()];
+  let currentMonth = months[currentTime.getMonth()];
+  let currentHours = currentTime.getHours();
+  let currentMinutes = currentTime.getMinutes();
+  let currentDate = currentTime.getDate();
+
+  let h2 = document.querySelector(`h2`);
+  h2.innerHTML = `${currentDay}. ${currentMonth}/${currentDate}`;
+  let h3 = document.querySelector(`h3`);
+  h3.innerHTML = `${currentHours}:${currentMinutes}`;
+
+  let formattedDate = `${currentHours}:${currentMinutes} ${currentDay}. ${currentMonth} ${currentDate}`;
+  console.log(formattedDate);
+
+  return formattedDate;
+}
