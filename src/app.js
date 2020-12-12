@@ -28,16 +28,15 @@ function formatDate() {
   let h3 = document.querySelector(`h3`);
   h3.innerHTML = `${currentHours}:${currentMinutes}`;
 
-  let formattedDate = `${currentHours}:${currentMinutes} ${currentDay}. ${currentMonth} ${currentDate}`;
+  let formattedDate = `{currentDay}. ${currentMonth} ${currentDate} ${currentHours}:${currentMinutes} $`;
   console.log(formattedDate);
 
   return formattedDate;
 }
 
 function displayWeatherConditions(response) {
-  console.log(response.data);
-  document.querySelector(`#city`).innerHTML = response.data.name;
-  document.querySelector(`#country`).innerHTML = response.data.sys.country;
+  console.log(response.data.main);
+
   document.querySelector(`#temperature`).innerHTML = Math.round(
     response.data.main.temp
   );
