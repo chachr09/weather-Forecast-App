@@ -99,6 +99,45 @@ function displayWeatherConditions(response) {
   );
 }
 
+function changeToFahrenheit(event) {
+  event.preventDefault();
+  let fahrenheitTemperature = (celsiusTemperature * 9) / 5 + 32;
+  let newTempFahrenheit = document.querySelector(".temperature");
+  newTempFahrenheit.innerHTML = Math.round(fahrenheitTemperature);
+  let fahrenheitForecastMax = document.querySelectorAll(".forecastMax");
+  fahrenheitForecastMax.forEach(function (item) {
+    let currentTemp = item.innerHTML;
+    item.innerHTML = Math.round((currentTemp * 9) / 5 + 32);
+  });
+  let fahrenheitForecastMin = document.querySelectorAll(".forecastMin");
+  fahrenheitForecastMin.forEach(function (item) {
+    let currentTemp = item.innerHTML;
+
+    item.innerHTML = Math.round((currentTemp * 9) / 5 + 32);
+  });
+
+  celsius.addEventListener("click", changeToCelsius);
+  fahrenheit.removeEventListener("click", changeToFahrenheit);
+}
+function changeToCelsius(event) {
+  event.preventDefault();
+  let temperatureElement = document.querySelector(".temperature");
+  temperatureElement.innerHTML = Math.round(celsiusTemperature);
+  let fahrenheitForecastMax = document.querySelectorAll(".forecastMax");
+  fahrenheitForecastMax.forEach(function (item) {
+    let currentTemp = item.innerHTML;
+    item.innerHTML = Math.round(((currentTemp - 32) * 5) / 9);
+  });
+  let fahrenheitForecastMin = document.querySelectorAll(".forecastMin");
+  fahrenheitForecastMin.forEach(function (item) {
+    let currentTemp = item.innerHTML;
+    item.innerHTML = Math.round(((currentTemp - 32) * 5) / 9);
+  });
+
+  celsius.removeEventListener("click", changeToCelsius);
+  fahrenheit.addEventListener("click", changeToFahrenheit);
+}
+
 function search(city) {
   let units = `metric`;
   let apiKey = `20e1dda3ee52411912adb300097a5c3f`;
