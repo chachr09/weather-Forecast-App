@@ -66,7 +66,9 @@ h2 {
   font-family: "Elsie Swash Caps", cursive;
 }
 
-h3,
+h3 {
+  font-size: 20px;
+}
 h4 {
   font-size: 16px;
 }

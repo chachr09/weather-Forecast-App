@@ -1,5 +1,13 @@
-function formattedDate() {
-  let days = [`Sun`, `Mon`, `Tues`, `Wed`, `Thur`, `Fri`, `Sat`];
+function formatDate() {
+  let days = [
+    `Sunday`,
+    `Monday`,
+    `Tuesday`,
+    `Wednesday`,
+    `Thursday`,
+    `Friday`,
+    `Saturday`,
+  ];
 
   let months = [
     `Jan`,
@@ -21,18 +29,21 @@ function formattedDate() {
   let currentMonth = months[currentTime.getMonth()];
   let currentHours = currentTime.getHours();
   let currentMinutes = currentTime.getMinutes();
+
   let currentDate = currentTime.getDate();
+  let currentYear = currentTime.getFullYear();
 
   let h3 = document.querySelector(`h3`);
-  h3.innerHTML = `${currentDay}. ${currentMonth}/${currentDate}`;
+  h3.innerHTML = `${currentHours}:${currentMinutes}`;
   let h4 = document.querySelector(`h4`);
-  h4.innerHTML = `${currentHours}:${currentMinutes}`;
+  h4.innerHTML = `${currentDay}. ${currentMonth}. ${currentDate}, ${currentYear}`;
 
-  let formattedDate = `${currentDay}. ${currentMonth} ${currentDate} ${currentHours}:${currentMinutes}`;
+  let formattedDate = `${currentHours}:${currentMinutes} ${currentDay}. ${currentMonth} ${currentDate}, ${currentYear} `;
   console.log(formattedDate);
 
   return formattedDate;
 }
+console.log(formatDate());
 
 function displayWeatherConditions(response) {
   console.log(response.data.main);
