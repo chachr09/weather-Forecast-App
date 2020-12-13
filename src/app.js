@@ -1,4 +1,4 @@
-function formatDate() {
+function formattedDate() {
   let days = [`Sun`, `Mon`, `Tues`, `Wed`, `Thur`, `Fri`, `Sat`];
 
   let months = [
@@ -24,10 +24,11 @@ function formatDate() {
   let currentDate = currentTime.getDate();
 
   let h3 = document.querySelector(`h3`);
-  h3.innerHTML = `${currentDay}. ${currentMonth}/${currentDate}` ${currentHours}:${currentMinutes}`;
-  
+  h3.innerHTML = `${currentDay}. ${currentMonth}/${currentDate}`;
+  let h4 = document.querySelector(`h4`);
+  h4.innerHTML = `${currentHours}:${currentMinutes}`;
 
-  let formattedDate = `${currentDay}. ${currentMonth}/${currentDate}` ${currentHours}:${currentMinutes}`;
+  let formattedDate = `${currentDay}. ${currentMonth} ${currentDate} ${currentHours}:${currentMinutes}`;
   console.log(formattedDate);
 
   return formattedDate;
@@ -74,8 +75,6 @@ function handleSubmit(event) {
   let city = document.querySelector(`#search-city-input`).value;
   search(city);
 }
-
+search(`Sacramento`);
 let searchForm = document.querySelector("#search-weather");
 searchForm.addEventListener("submit", handleSubmit);
-
-search(`Sacramento`);

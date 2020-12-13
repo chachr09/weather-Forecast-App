@@ -66,7 +66,8 @@ h2 {
   font-family: "Elsie Swash Caps", cursive;
 }
 
-h3 {
+h3,
+h4 {
   font-size: 16px;
 }
 ul {
@@ -82,8 +83,26 @@ p {
   color: #168686;
 }
 
-.temperature {
-  text-align: center;
+.weather-temp .temperature {
   font-size: 50px;
-  font-weight: bold;
+  font-weight: 400;
+  line-height: 1;
+}
+
+.weather-temp .units {
+  position: relative;
+  font-size: 18px;
+  top: -20px;
+}
+
+.feels-like .current-temp {
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1;
+}
+
+.feels-like .units2 {
+  position: relative;
+  font-size: 14px;
+  top: -3px;
 }

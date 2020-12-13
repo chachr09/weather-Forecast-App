@@ -52,11 +52,18 @@
         <div class="row">
           <div class="col-sm-4">
             <h3></h3>
+            <h4></h4>
+            <div class="weather-temp">
+              <span class="temperature" id="temperature"> </span>
+              <span class="units"> °C | °F</span>
+              <br />
+            </div>
 
-            <span class="temperature" id="temperature"> </span>
-            <span id="degree1"> °C</span><br />
-            Feels like:
-            <span id="current-temp"> </span> <span id="degree2">°C </span>
+            <div class="feels-like">
+              Feels like:
+              <span class="current-temp" id="current-temp"> </span>
+              <span class="units2"> °C | °F </span> <br />
+            </div>
           </div>
 
           <div class="col-sm-3">
@@ -75,7 +82,8 @@
           <div class="col-sm-3">
             <ul id="weather-elements">
               Humidity:
-              <span id="humidity"> %</span>
+              <span id="humidity"> </span>
+              <span>% </span>
               <br />
               Sunrise:
               <span id="sunrise"> </span>
@@ -84,7 +92,8 @@
               <span id="sunset"> </span>
               <br />
               Wind:
-              <span id="wind"> mph</span>
+              <span id="wind"> </span>
+              <span>mph </span>
             </ul>
           </div>
         </div>
