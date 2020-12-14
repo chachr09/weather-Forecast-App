@@ -83,8 +83,8 @@ function displayWeatherConditions(response) {
   document.querySelector(`#current-temp`).innerHTML = Math.round(
     response.data.main.feels_like
   );
-  document.querySelector(`#weather-icon`).innerHTML =
-    response.data.weather.icon;
+
+  let iconElement = document.querySelector(`#weatherIcon`);
   document.querySelector(`#forecast-description`).innerHTML =
     response.data.weather[0].description;
   document.querySelector(`#humidity`).innerHTML = response.data.main.humidity;
@@ -97,45 +97,11 @@ function displayWeatherConditions(response) {
   document.querySelector(`#wind`).innerHTML = Math.round(
     response.data.wind.speed
   );
-}
-
-function changeToFahrenheit(event) {
-  event.preventDefault();
-  let fahrenheitTemperature = (celsiusTemperature * 9) / 5 + 32;
-  let newTempFahrenheit = document.querySelector(".temperature");
-  newTempFahrenheit.innerHTML = Math.round(fahrenheitTemperature);
-  let fahrenheitForecastMax = document.querySelectorAll(".forecastMax");
-  fahrenheitForecastMax.forEach(function (item) {
-    let currentTemp = item.innerHTML;
-    item.innerHTML = Math.round((currentTemp * 9) / 5 + 32);
-  });
-  let fahrenheitForecastMin = document.querySelectorAll(".forecastMin");
-  fahrenheitForecastMin.forEach(function (item) {
-    let currentTemp = item.innerHTML;
-
-    item.innerHTML = Math.round((currentTemp * 9) / 5 + 32);
-  });
-
-  celsius.addEventListener("click", changeToCelsius);
-  fahrenheit.removeEventListener("click", changeToFahrenheit);
-}
-function changeToCelsius(event) {
-  event.preventDefault();
-  let temperatureElement = document.querySelector(".temperature");
-  temperatureElement.innerHTML = Math.round(celsiusTemperature);
-  let fahrenheitForecastMax = document.querySelectorAll(".forecastMax");
-  fahrenheitForecastMax.forEach(function (item) {
-    let currentTemp = item.innerHTML;
-    item.innerHTML = Math.round(((currentTemp - 32) * 5) / 9);
-  });
-  let fahrenheitForecastMin = document.querySelectorAll(".forecastMin");
-  fahrenheitForecastMin.forEach(function (item) {
-    let currentTemp = item.innerHTML;
-    item.innerHTML = Math.round(((currentTemp - 32) * 5) / 9);
-  });
-
-  celsius.removeEventListener("click", changeToCelsius);
-  fahrenheit.addEventListener("click", changeToFahrenheit);
+  iconElement.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
+  iconElement.setAttribute("alt", response.data.weather[0].description);
 }
 
 function search(city) {
