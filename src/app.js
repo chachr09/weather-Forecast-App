@@ -1,5 +1,5 @@
-function dateTime(timestamp) {
-  let date = new Date(timestamp);
+function formatHours(timestamp) {
+  let currentDateTime = new Date(timestamp);
   let hours = currentDateTime.getHours();
   if (hours < 10) {
     hours = `0${hours}`;
@@ -19,8 +19,6 @@ function dateTime(timestamp) {
   ];
   let day = days[currentDateTime.getDay()];
 
-  let dateElement = document.querySelector(`#currentDateTime`);
-  dateElement.innerHTML = dateTime(response.data.dt * 1000);
   return `${day} ${hours}:${minutes}`;
 }
 
@@ -69,12 +67,12 @@ function formatDate() {
 
   return formattedDate;
 }
-console.log(formatDate());
 
 function displayWeatherConditions(response) {
   let h2 = document.querySelector(`#city`);
   h2.innerHTML = response.data.name;
-
+  let dateElement = document.querySelector(`#currentDateTime`);
+  dateElement.innerHTML = formatHours(response.data.dt * 1000);
   document.querySelector(`#country`).innerHTML = response.data.sys.country;
 
   let temperature = document.querySelector(`#temperature`);
