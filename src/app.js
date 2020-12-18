@@ -18,7 +18,6 @@ function formatHours(timestamp) {
     `Saturday`,
   ];
   let day = days[currentDateTime.getDay()];
-
   return `${day} ${hours}:${minutes}`;
 }
 
@@ -89,12 +88,11 @@ function displayWeatherConditions(response) {
   document.querySelector(`#forecast-description`).innerHTML =
     response.data.weather[0].description;
   document.querySelector(`#humidity`).innerHTML = response.data.main.humidity;
-  document.querySelector(`#sunrise`).innerHTML = Math.round(
-    response.data.sys.sunrise
-  );
-  document.querySelector(`#sunset`).innerHTML = Math.round(
-    response.data.sys.sunset
-  );
+
+  let sunrise = document.querySelector(`#sunrise`);
+  sunrise.innerHTML = new Date(response.data.sys.sunrise * 1000);
+  let sunset = document.querySelector(`#sunset`);
+  sunset.innerHTML = new Date(response.data.sys.sunset * 1000);
   document.querySelector(`#wind`).innerHTML = Math.round(
     response.data.wind.speed
   );
